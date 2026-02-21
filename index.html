@@ -10,15 +10,15 @@
 
 <body>
     <header class="main-header">
-  
 
-  <nav class="nav-links">
-    <a href="#entwicklungen">Entwicklungen</a>
-    <a href="#zoll">Zoll</a>
-    <a href="#ausgangslage">Ausgangslage</a>
-    <a href="#warenhandel">Warenhandel</a>
-  </nav>
-</header>
+
+        <nav class="nav-links">
+            <a href="#entwicklungen">Entwicklungen</a>
+            <a href="#zoll">Zoll</a>
+            <a href="#ausgangslage">Ausgangslage</a>
+            <a href="#warenhandel">Warenhandel</a>
+        </nav>
+    </header>
     <div class="wrap">
         <section class="image-section card">
             <img src="img/istockphoto-2208253629-1024x1024.jpg" alt="USA EU China Trade Chess">
@@ -563,6 +563,9 @@
             <ul class="author-list">
                 <li>Roz Zaitoun</li>
                 <li>Felix Neumann</li>
+            </ul>
+            <ul class="author-list">
+
                 <li>Fynn Schnittger</li>
                 <li>Klaudio Paloka</li>
             </ul>
@@ -570,45 +573,45 @@
     </div>
 
     <script>
-(function () {
-  function easeInOutCubic(t){
-    return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3)/2;
-  }
+        (function () {
+            function easeInOutCubic(t) {
+                return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            }
 
-  function animatedScrollTo(targetY, duration = 1100){
-    const startY = window.pageYOffset || document.documentElement.scrollTop || 0;
-    const diff = targetY - startY;
-    const start = performance.now();
+            function animatedScrollTo(targetY, duration = 1100) {
+                const startY = window.pageYOffset || document.documentElement.scrollTop || 0;
+                const diff = targetY - startY;
+                const start = performance.now();
 
-    function step(now){
-      const t = Math.min((now - start) / duration, 1);
-      const eased = easeInOutCubic(t);
-      window.scrollTo(0, startY + diff * eased);
-      if (t < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
+                function step(now) {
+                    const t = Math.min((now - start) / duration, 1);
+                    const eased = easeInOutCubic(t);
+                    window.scrollTo(0, startY + diff * eased);
+                    if (t < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            }
 
-  // يمسك أي لينك داخلي href يبدأ بـ #
-  document.addEventListener("click", function(e){
-    const a = e.target.closest('a[href^="#"]');
-    if (!a) return;
+            // يمسك أي لينك داخلي href يبدأ بـ #
+            document.addEventListener("click", function (e) {
+                const a = e.target.closest('a[href^="#"]');
+                if (!a) return;
 
-    const hash = a.getAttribute("href");
-    if (!hash || hash === "#") return;
+                const hash = a.getAttribute("href");
+                if (!hash || hash === "#") return;
 
-    const target = document.querySelector(hash);
-    if (!target) return;
+                const target = document.querySelector(hash);
+                if (!target) return;
 
-    e.preventDefault();
+                e.preventDefault();
 
-    const header = document.querySelector(".main-header");
-    const headerH = header ? header.getBoundingClientRect().height : 0;
+                const header = document.querySelector(".main-header");
+                const headerH = header ? header.getBoundingClientRect().height : 0;
 
-    const y = target.getBoundingClientRect().top + window.pageYOffset - headerH - 12;
-    animatedScrollTo(y, 1100);
-  });
-})();
-</script>
+                const y = target.getBoundingClientRect().top + window.pageYOffset - headerH - 12;
+                animatedScrollTo(y, 1100);
+            });
+        })();
+    </script>
 </body>
 </html>
